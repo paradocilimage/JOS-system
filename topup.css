@@ -1,0 +1,179 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F0F4F8;
+    color: #424242;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #0D47A1;
+    margin-bottom: 20px;
+}
+
+.cards-container {
+    display: grid;
+    gap: 15px;
+}
+
+.card {
+    background-color: #E3F2FD;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .card h3 {
+        color: #0D47A1;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        margin-bottom: 8px;
+    }
+
+.status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.status-active {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+}
+
+.status-temp-block {
+    background-color: #FFF3E0;
+    color: #E65100;
+}
+
+.status-perm-block {
+    background-color: #FFEBEE;
+    color: #C62828;
+}
+
+.select-card {
+    background-color: #1976D2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+    .select-card:hover {
+        background-color: #0D47A1;
+    }
+
+.topup-form {
+    background-color: #E3F2FD;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: #0D47A1;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #BBDEFB;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+    .btn.primary {
+        background-color: #1976D2;
+        color: white;
+    }
+
+        .btn.primary:hover {
+            background-color: #0D47A1;
+        }
+
+    .btn.cancel {
+        background-color: #78909C;
+        color: white;
+    }
+
+        .btn.cancel:hover {
+            background-color: #546E7A;
+        }
+
+.error-message {
+    color: #C62828;
+    background-color: #FFEBEE;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.no-cards-message {
+    text-align: center;
+    padding: 20px;
+    background-color: #E3F2FD;
+    border-radius: 8px;
+    color: #0D47A1;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

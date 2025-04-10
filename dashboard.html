@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - JOS System</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="user-info">
+            <h3>Welcome, <span id="fullName">[Full Name]</span></h3>
+            <p>Username: <span id="username">[Username]</span></p>
+            <p>User ID: <span id="userId">[User ID]</span></p>
+        </div>
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="new.html">Create Account</a></li>
+                <li><a href="reset.html">Reset Password</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Dashboard Sections -->
+    <section class="dashboard">
+        <div class="section topup">
+            <h2>Top-Up</h2>
+            <p>Manage your balance conveniently and securely.</p>
+            <a href="topup.html" class="btn-primary">Top up</a>
+        </div>
+        <div class="section ticket-purchase">
+            <h2>Ticket Purchase</h2>
+            <p>Purchase your travel tickets instantly.</p>
+            <a href="tickets.html" class="btn-primary">Buy Tickets</a>
+        </div>
+        <div class="section card-management">
+            <h2>Card Management</h2>
+            <p>View and manage your cards with ease.</p>
+            <a href="cardmanagement.html" class="btn-primary">Manage Cards</a>
+           
+        </div>
+        <div class="section bus-location">
+            <h2>Bus Location Tracker</h2>
+            <p>Track buses in real-time and plan your travel better.</p>
+            <a href="buslocation.html" class="btn-primary">Track Buses</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 JOS System. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript to populate user information dynamically -->
+    <script>
+        // Assuming user information is stored in sessionStorage after login
+        const user = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+        if (user) {
+            document.getElementById("fullName").textContent = user.fullName;
+            document.getElementById("username").textContent = user.username;
+            document.getElementById("userId").textContent = user.userId;
+        } else {
+            // Redirect to login if user details are not found
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

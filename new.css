@@ -1,0 +1,149 @@
+﻿.background-video {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+html {
+    height: 100%;
+    overflow-y: auto;
+}
+
+body {
+    min-height: 100vh;
+    padding-bottom: 40px;
+    position: relative;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container for the account creation form */
+.signIn-container {
+    background-color: #FFF8DC; /* Pale yellow background */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 600px;
+    text-align: left;
+    z-index: 1;
+    margin: 40px auto; /* Centers container and adds top spacing */
+}
+
+/* Grid layout for form fields */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Form groups to organize input fields */
+.form-group {
+    width: 100%;
+}
+
+/* Gender selection options */
+.gender-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Buttons layout */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Style for buttons */
+.signIN-button {
+    padding: 10px 20px;
+    background-color: #F9A602; /* Bright yellow-orange */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    flex: 1;
+    margin: 0 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+    .signIN-button:hover {
+        background-color: #D19002; /* Darker yellow-orange for hover effect */
+        transform: translateY(-2px);
+    }
+
+/* Logo styling */
+.logo {
+    width: 120px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+/* Headings */
+h1 {
+    color: #F9A602; /* Bright yellow-orange text */
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+    color: #333; /* Dark gray for contrast */
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input field styling */
+input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #FFD700; /* Golden border */
+    border-radius: 5px;
+    background-color: #FFFAE3; /* Subtle yellow background */
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+    input:focus {
+        border-color: #F9A602; /* Bright yellow-orange focus */
+        box-shadow: 0 0 5px rgba(249, 166, 2, 0.8);
+    }
+
+/* Notice messages */
+#notice {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #B22222; /* Red for errors */
+    text-align: center;
+}
+
+/* Links */
+p a {
+    color: #F9A602; /* Bright yellow-orange links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+    p a:hover {
+        color: #D19002; /* Darker yellow-orange for hover effect */
+    }

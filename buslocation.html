@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamaica Bus Location Tracker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="buslocation.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Jamaica Bus Location Tracker</h1>
+            <p>Track buses in real-time across Jamaica</p>
+        </header>
+        <div class="tracker-container">
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+            <div class="control-panel">
+                <div class="form-group">
+                    <label for="bus-id">Enter Bus ID</label>
+                    <input type="text" id="bus-id" placeholder="e.g. JB1001">
+                </div>
+                <button id="track-btn">Track Bus</button>
+                <div class="bus-info hidden" id="bus-info">
+                    <h3>Bus Information</h3>
+                    <p><strong>Bus ID:</strong> <span id="info-id"></span></p>
+                    <p><strong>Current Location:</strong> <span id="info-location"></span></p>
+                    <p><strong>Last Updated:</strong> <span id="info-time"></span></p>
+                    <p><strong>Next Stop:</strong> <span id="info-next-stop"></span></p>
+                    <p><strong>Route:</strong> <span id="info-route"></span></p>
+                    <p><strong>Status:</strong> <span id="info-status" class="status"></span></p>
+                    <p><strong>Estimated Arrival:</strong> <span id="info-arrival"></span></p>
+                </div>
+                <div class="refresh-controls hidden" id="refresh-controls">
+                    <button id="auto-refresh-btn">Auto-Refresh (30s)</button>
+                    <button id="stop-refresh-btn" disabled>Stop Refresh</button>
+                </div>
+                <div class="route-key">
+                    <h3>Available Bus Routes</h3>
+                    <ul class="route-list">
+                        <!-- This will be populated dynamically with JavaScript -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="buslocation.js"></script>
+</body>
+</html>

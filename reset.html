@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JOS System - Reset Password</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <!-- Background video playing automatically (muted and looping) -->
+    <video autoplay muted loop class="background-video" id="backgroundVideo">
+        <source src="JUTC.mp4" type="video/mp4">
+        <!-- Fallback for unsupported browsers -->
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay to improve readability over the video -->
+    <div class="overlay"></div>
+
+    <div class="login-container">
+        <!-- Logo for JOS System -->
+        <img src="JUTC.png" alt="JOS System Logo" class="logo">
+
+        <!-- Password reset form -->
+        <form id="resetForm" novalidate>
+            <!-- Username field to identify the user -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required placeholder="Enter your Username">
+            </div>
+
+            <!-- Input for new password -->
+            <div class="form-group">
+                <label for="password">New Password:</label>
+                <input type="password" id="password" required minlength="8" placeholder="Enter your new password">
+            </div>
+
+            <!-- Button to submit the form -->
+            <button type="submit">Reset</button>
+
+            <!-- Placeholder for feedback messages -->
+            <div id="resetMessage"></div>
+        </form>
+    </div>
+
+    <!-- External JavaScript c -->
+    <script>
+        document.getElementById('resetForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const newPassword = document.getElementById('password').value;
+
+            // Retrieve stored data
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Find the user by username
+            const userIndex = users.findIndex(user => user.username === username);
+
+            if (userIndex !== -1) {
+                // Update password
+                users[userIndex].password = newPassword;
+                localStorage.setItem('users', JSON.stringify(users));
+                document.getElementById('resetMessage').textContent = 'Password reset successful!';
+                document.getElementById('resetMessage').style.color = 'green';
+                setTimeout(() => {
+                    window.location.href = 'index.html'; // Redirect after success
+                }, 3000);
+            } else {
+                document.getElementById('resetMessage').textContent = 'Username not found. Please try again.';
+                document.getElementById('resetMessage').style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>

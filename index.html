@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JOS System - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <!-- Background video for the login page -->
+    <video autoplay muted loop class="background-video" id="backgroundVideo">
+        <source src="JUTC.mp4" type="video/mp4">
+        <!-- Fallback text for browsers that don't support videos -->
+        Background video unavailable. Please proceed with the login form.
+    </video>
+
+    <!-- Semi-transparent overlay to improve text readability -->
+    <div class="overlay"></div>
+
+    <!-- Login form container -->
+    <div class="login-container">
+        <!-- Logo -->
+        <img src="JUTC.png" alt="JOS System Logo" class="logo">
+        <h1>Login to JOS System</h1>
+
+        <!-- Login form -->
+        <form id="loginForm" novalidate>
+            <!-- Username input field -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required placeholder="Enter your username">
+            </div>
+            <!-- Password input field -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required minlength="8" placeholder="Enter your password">
+            </div>
+            <!-- Submit button -->
+            <button type="submit">Login</button>
+            <!-- Message area for login feedback -->
+            <div id="message"></div>
+        </form>
+
+        <!-- Links for account creation and password reset -->
+        <p class="create-account">Don't have an account? <a href="new.html">Create one</a></p>
+        <p class="create-account"><a href="reset.html">Reset Password</a></p>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

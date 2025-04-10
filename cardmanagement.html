@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Management System</title>
+    <link rel="stylesheet" href="cardmanagement.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card-info">
+            <h2>Your Card Details</h2>
+            <p>Card Number: <strong id="card-number-display">****-****-****-****</strong></p>
+            <p>Card ID: <strong id="card-id-display">-----</strong></p>
+            <p>Status: <span class="status" id="card-status">LOADING</span></p>
+            <p>Last Updated: <span id="last-updated">-- ---, ----</span></p>
+        </div>
+
+        <h2>Card Management Options</h2>
+        <div class="options-container">
+            <button class="option-button" id="temp-block">Block Temporarily</button>
+            <button class="option-button danger" id="perm-block">Block Permanently</button>
+            <button class="option-button" id="request-replacement">Request Replacement</button>
+            <button class="option-button success" id="unblock-card" style="display: none;">Unblock Card</button>
+            <button class="option-button cancel" id="cancel">Cancel</button>
+        </div>
+
+        <!-- Confirmation Dialogs -->
+        <div class="confirmation" id="temp-block-confirm">
+            <h3>Temporary Block Confirmation</h3>
+            <p>Are you sure you want to temporarily block your card? You can unblock it later.</p>
+            <div class="confirmation-buttons">
+                <button class="option-button cancel" onclick="hideConfirmations()">Cancel</button>
+                <button class="option-button" id="temp-block-confirm-btn">Confirm</button>
+            </div>
+        </div>
+
+        <div class="confirmation" id="unblock-confirm">
+            <h3>Unblock Card Confirmation</h3>
+            <p>Are you sure you want to unblock your card? This will make it active again.</p>
+            <div class="confirmation-buttons">
+                <button class="option-button cancel" onclick="hideConfirmations()">Cancel</button>
+                <button class="option-button success" id="unblock-confirm-btn">Confirm</button>
+            </div>
+        </div>
+
+        <div class="confirmation" id="perm-block-confirm">
+            <h3>Permanent Block Confirmation</h3>
+            <p>Warning: Permanently blocking your card cannot be undone. You will need to request a replacement card.</p>
+            <div class="confirmation-buttons">
+                <button class="option-button cancel" onclick="hideConfirmations()">Cancel</button>
+                <button class="option-button danger" id="perm-block-confirm-btn">Confirm</button>
+            </div>
+        </div>
+
+        <div class="confirmation" id="replacement-form">
+            <h3>Request Card Replacement</h3>
+            <form id="replacement-request-form">
+                <div class="form-group">
+                    <label for="replacement-reason">Reason for replacement:</label>
+                    <select id="replacement-reason" name="reason" required>
+                        <option value="">Select a reason</option>
+                        <option value="LOST">Lost</option>
+                        <option value="STOLEN">Stolen</option>
+                        <option value="DAMAGED">Damaged</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="replacement-description">Brief description (optional):</label>
+                    <textarea id="replacement-description" name="description"></textarea>
+                </div>
+                <div class="confirmation-buttons">
+                    <button type="button" class="option-button cancel" onclick="hideConfirmations()">Cancel</button>
+                    <button type="button" class="option-button" id="replacement-submit-btn">Submit Request</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="success-message" id="action-success">
+            <h3>Operation Successful</h3>
+            <p id="success-message"></p>
+        </div>
+    </div>
+
+    <script src="cardmanagement.js"></script>
+</body>
+</html>

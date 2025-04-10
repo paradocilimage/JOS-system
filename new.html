@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account - JOS System</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="new.css">
+</head>
+<body>
+    <video autoplay muted loop class="background-video" id="backgroundVideo">
+        <source src="JUTC.mp4" type="video/mp4">
+        <!-- Fallback for unsupported browsers -->
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Account creation form container -->
+    <div class="signIn-container">
+        <img src="JUTC.png" alt="JOS System Logo" class="logo">
+        <h1>Create an Account</h1>
+
+        <!-- Account creation form -->
+        <form id="createAccountForm">
+            <div class="form-grid">
+                <!-- First Name -->
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <!-- Last Name -->
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required minlength="2">
+                </div>
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required maxlength="16" placeholder="No more than 16 characters">
+                </div>
+                <!-- Date of Birth -->
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <!-- Gender -->
+                <div class="form-group gender-options">
+                    <label>Gender:</label>
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+                </div>
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" name="phone" required pattern="\d{3}-\d{3}-\d{4}" title="Enter phone number in 000-000-0000 format">
+                </div>
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required minlength="8">
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-container">
+                <button type="submit" class="signIN-button">Create Account</button>
+                <button type="button" id="cancelButton" class="signIN-button">Cancel</button>
+            </div>
+        </form>
+
+        <!-- Notice area for feedback messages -->
+        <div id="notice"></div>
+        <p>Already have an account? <a href="index.html">Log in here</a>.</p>
+    </div>
+
+    <!-- JavaScript link -->
+    <script>
+        const assignedIds = [];
+
+        // Function to generate a unique user ID
+        function generateUniqueUserId() {
+            let newId;
+            do {
+                newId = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+            } while (assignedIds.includes(newId));
+            assignedIds.push(newId);
+            return newId;
+        }
+
+        document.getElementById('createAccountForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Collect user information
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const username = document.getElementById('username').value;
+            const dob = document.getElementById('dob').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Generate a unique user ID
+            const userId = generateUniqueUserId();
+
+            // Simulate saving to local storage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            users.push({
+                firstName,
+                lastName,
+                username,
+                dob,
+                gender,
+                phone,
+                email,
+                password,
+                userId
+            });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // Display success message
+            const notice = document.getElementById('notice');
+            notice.innerHTML = `<p>Registration Successful! Redirecting to login page...</p>`;
+            notice.style.color = "green";
+
+            // Redirect to login page after a short delay
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 3000);
+        });
+
+        // Handle cancel button
+        document.getElementById('cancelButton').addEventListener('click', function () {
+            document.getElementById('createAccountForm').reset();
+            const notice = document.getElementById('notice');
+            notice.textContent = '';
+        });
+    </script>
+
+</body>
+</html>

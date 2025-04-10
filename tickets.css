@@ -1,0 +1,305 @@
+﻿/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #F0F4F8; /* Updated color */
+    color: #424242; /* Updated color */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.navbar {
+    background-color: #0D47A1; /* Updated color */
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+    .navbar nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .navbar nav ul li {
+            margin-left: 1.5rem;
+        }
+
+            .navbar nav ul li a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+
+                .navbar nav ul li a:hover {
+                    color: #BBDEFB; /* Updated color */
+                }
+
+.user-info {
+    margin-right: 20px;
+}
+
+    .user-info h3 {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+
+    .user-info p {
+        margin: 5px 0 0;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+
+/* Main Content */
+.ticket-system {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+    .ticket-system h1 {
+        color: #0D47A1; /* Updated color */
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+    }
+
+    .ticket-system h2 {
+        color: #1976D2; /* Updated color */
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 0.5rem;
+    }
+
+/* Options Section */
+.options-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+    .options-section button {
+        background-color: #1976D2; /* Updated color */
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        margin: 10px;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .options-section button:hover {
+            background-color: #0D47A1; /* Updated color */
+            transform: translateY(-2px);
+        }
+
+/* Ticket List Section */
+.ticket-section {
+    margin-bottom: 2rem;
+}
+
+#ticket-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.ticket {
+    background-color: #E3F2FD; /* Updated color */
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+    .ticket:hover {
+        transform: translateY(-5px);
+    }
+
+    .ticket p {
+        margin: 8px 0;
+    }
+
+    .ticket .available {
+        color: #4CAF50;
+        font-weight: bold;
+    }
+
+    .ticket .unavailable {
+        color: #F44336;
+        font-weight: bold;
+    }
+
+    .ticket button {
+        background-color: #1976D2; /* Updated color */
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        margin-top: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .ticket button:hover {
+            background-color: #0D47A1; /* Updated color */
+        }
+
+.back-button {
+    background-color: #1976D2; /* Updated color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    grid-column: 1 / -1;
+    width: max-content;
+    justify-self: center;
+}
+
+    .back-button:hover {
+        background-color: #0D47A1; /* Updated color */
+    }
+
+/* Purchase Form Section */
+.purchase-section {
+    background-color: #E3F2FD; /* Updated color */
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+    .button-group button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+        .button-group button[type="submit"] {
+            background-color: #1976D2; /* Updated color */
+            color: white;
+        }
+
+            .button-group button[type="submit"]:hover {
+                background-color: #0D47A1; /* Updated color */
+            }
+
+        .button-group button[type="button"] {
+            background-color: #1976D2; /* Updated color */
+            color: white;
+        }
+
+            .button-group button[type="button"]:hover {
+                background-color: #0D47A1; /* Updated color */
+            }
+
+        .button-group button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+.message-box {
+    margin-top: 1.5rem;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    min-height: 60px;
+}
+
+/* Confirmation styles */
+.confirmation {
+    background-color: #E8F5E9;
+    border-left: 4px solid #4CAF50;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+    .confirmation h3 {
+        color: #2E7D32;
+        margin-top: 0;
+    }
+
+/* Footer */
+.footer {
+    background-color: #0D47A1; /* Updated color */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+
+        .navbar nav ul {
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+            .navbar nav ul li {
+                margin: 0.5rem;
+            }
+
+    #ticket-list {
+        grid-template-columns: 1fr;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+        .button-group button {
+            width: 100%;
+        }
+}

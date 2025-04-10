@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Error - JOS System</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            margin: 0;
+        }
+
+        .error-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #D32F2F; /* Error red */
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .countdown {
+            font-weight: bold;
+            color: #4CAF50; /* Green text for countdown */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <h1>Login Error</h1>
+        <p>Check your username and password before trying again.<br>You will be redirected in <span class="countdown">15</span> seconds.</p>
+    </div>
+
+    <script>
+    // Find the HTML element where the countdown will be displayed
+    let countdownElement = document.querySelector('.countdown');
+
+    // Set the starting value of the countdown (15 seconds)
+    let countdown = 15;
+
+    // Create a function that runs every second
+    const countdownInterval = setInterval(() => {
+        // Decrease the countdown value by 1
+        countdown--;
+
+        // Update the text of the countdown element with the new value
+        countdownElement.textContent = countdown;
+
+        // Check if the countdown has reached zero
+        if (countdown === 0) {
+            // Stop the countdown
+            clearInterval(countdownInterval);
+
+            // Redirect the user to the login page (index.html)
+            window.location.href = 'index.html';
+        }
+    }, 1000); // 1000 milliseconds = 1 second
+    </script>
+
+</body>
+</html>
